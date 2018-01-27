@@ -6,13 +6,14 @@
 /*   By: allallem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 13:46:32 by allallem          #+#    #+#             */
-/*   Updated: 2018/01/27 16:40:05 by allallem         ###   ########.fr       */
+/*   Updated: 2018/01/27 17:00:50 by allallem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define B_PF_SIZE 1024
+# define BUFF_SIZE 1200
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -23,6 +24,13 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+typedef struct		s_gnlist
+{
+	char			*tmp;
+	int				fd;
+	struct s_gnlist	*next;
+	struct s_gnlist	*previous;
+}					t_gnlist;
 
 typedef struct		s_list
 {
@@ -160,5 +168,6 @@ int					ft_strstr_int(char const *str, char const pattern);
 long long int		ft_atoi_longlongint(char const *str);
 void				ft_putnbr_spe(intmax_t n);
 long long int		ft_strlen_longlong(char *str);
+int					get_next_line(const int fd, char **line);
 
 #endif
